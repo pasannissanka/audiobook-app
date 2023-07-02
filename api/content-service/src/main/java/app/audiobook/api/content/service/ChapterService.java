@@ -11,7 +11,7 @@ public interface ChapterService {
     public Chapter update(Chapter chapter);
     public boolean existsById(String id);
     public boolean deleteChapter(String id);
-    public List<Chapter> findAll();
+    public List<Chapter> getAllChapters();
     public Chapter findChapterById(String id);
 
 

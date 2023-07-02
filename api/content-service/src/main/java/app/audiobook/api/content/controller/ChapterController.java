@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/chapters")
+@RequestMapping("/chapters")
 public class ChapterController {
 
     @Autowired
-    private ChapterService chapterService;
+    private final ChapterService chapterService;
 
     public ChapterController(ChapterService chapterService) {
         this.chapterService = chapterService;
@@ -23,6 +23,18 @@ public class ChapterController {
     @PostMapping
     public Chapter saveChapter(@RequestBody Chapter chapter){
         return chapterService.save(chapter);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Chapter> updateChapter(@PathVariable String id,
+                                                 @RequestBody Chapter chapter){
+        if(!chapterService.existsById(id)){
+            return ResponseEntity.notFound().build();
+        }
+
+        chapter.setId(id);
+        Chapter updatedChapter = chapterService.update(chapter);
+        return ResponseEntity.ok(updatedChapter);
     }
 
     @GetMapping("/{id}")
@@ -37,20 +49,10 @@ public class ChapterController {
 
     @GetMapping
     public List<Chapter> getAllChapters(){
-        return chapterService.findAll();
+        return chapterService.getAllChapters();
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Chapter> updateChapter(@PathVariable String id,
-                                          @RequestBody Chapter chapter){
-        if(!chapterService.existsById(id)){
-            return ResponseEntity.notFound().build();
-        }
 
-        chapter.setId(id);
-        Chapter updatedChapter = chapterService.update(chapter);
-        return ResponseEntity.ok(updatedChapter);
-    }
 
     @DeleteMapping("/id")
     public ResponseEntity<Void> deleteChapter(@PathVariable String id){

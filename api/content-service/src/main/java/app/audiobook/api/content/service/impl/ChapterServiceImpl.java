@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class ChapterServiceImpl implements ChapterService {
 
-    private ChapterRepository chapterRepository;
+    private final ChapterRepository chapterRepository;
 
     @Autowired
     public ChapterServiceImpl(ChapterRepository chapterRepository) {
@@ -44,7 +44,7 @@ public class ChapterServiceImpl implements ChapterService {
         return false;
     }
     @Override
-    public List<Chapter> findAll() {
+    public List<Chapter> getAllChapters() {
         return chapterRepository.findAll();
     }
 
