@@ -8,26 +8,22 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
-@Document(collection ="books")
+@Document(collection = "authors")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Book {
+public class Author {
     @Id
     private String id;
-    private String name;
-    private String language;
-    private String description;
-    private List<String> covers_s3;
+    private String title;
+    private String full_name;
+    private Date birth_year;
+    private Date death_year;
     @DBRef
-    private List<Author> authors;
-    @DBRef
-    private List<Genre> genres;
-    @DBRef
-    private List<Chapter> chapters;
-
-
+    private List<Book> books;
 }
+
