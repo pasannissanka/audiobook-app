@@ -7,6 +7,7 @@ import {
   EllipsisVerticalIcon,
   PencilSquareIcon,
   TrashIcon,
+  PlusIcon
 } from "@heroicons/react/24/outline";
 import Dropdown, { DropdownItem } from "./Dropdown";
 import { Menu } from "@headlessui/react";
@@ -49,6 +50,10 @@ export const BookCard = ({
               <span>View</span>
             </DropdownItem>
             <DropdownItem type="button" onClick={() => setIsEditOpen(true)}>
+              <PlusIcon className="w-4 h-4" />
+              <span>Add</span>
+            </DropdownItem>
+            <DropdownItem type="button" onClick={() => setIsEditOpen(true)}>
               <PencilSquareIcon className="w-4 h-4" />
               <span>Edit</span>
             </DropdownItem>
@@ -70,8 +75,8 @@ export const BookCard = ({
         <Button text="Listen" target={path} type="link" variant="outline" />
       </div>
       <Modal
-        title="Edit book"
-        description="Edit book details"
+        title="Add book"
+        description="Add book details"
         isOpen={isEditOpen}
         setIsOpen={setIsEditOpen}
         type="fullscreen"

@@ -18,8 +18,4 @@ public class ChapterDto {
     private LocalDateTime time;
     private List<String> audio_urls;
     private List<String> images_s3;
-
-//    public static Chapter chapterToChapter(ChapterDto chapterDto){
-//
-//    }
 }

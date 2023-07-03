@@ -51,9 +51,11 @@ export const BookForm = () => {
               },
             ],
           }}
-          onSubmit={(values) => {}}
+          onSubmit={(values) => {
+            console.log(values);
+          }}
         >
-          {({ values }) => (
+          {({ values, submitForm, setFieldValue }) => (
             <Form className="flex flex-col">
               <div className="flex justify-between">
                 <div className="flex flex-col w-1/3 p-4">
@@ -71,7 +73,9 @@ export const BookForm = () => {
                   <SelectField
                     name="language"
                     values={options}
-                    onChange={(value) => {}}
+                    onChange={(value) => {
+                      setFieldValue("language", value);
+                    }}
                     selected={{ id: 1 }}
                     title="Language"
                   />
@@ -108,7 +112,9 @@ export const BookForm = () => {
                       <SelectField
                         name="Author"
                         values={options}
-                        onChange={(value) => {}}
+                        onChange={(value) => {
+                          setFieldValue("author", value);
+                        }}
                         selected={{ id: 1 }}
                         title="Author"
                       />
@@ -128,7 +134,9 @@ export const BookForm = () => {
                       <SelectField
                         name="genre"
                         values={options}
-                        onChange={(value) => {}}
+                        onChange={(value) => {
+                          setFieldValue("genre", value);
+                        }}
                         selected={{ id: 1 }}
                         title="Genre"
                       />
@@ -246,6 +254,14 @@ export const BookForm = () => {
                     </div>
                   )}
                 </FieldArray>
+              </div>
+              <div>
+                <Button
+                  text="Submit"
+                  target={() => submitForm()}
+                  type="button"
+                  btnType="submit"
+                />
               </div>
             </Form>
           )}

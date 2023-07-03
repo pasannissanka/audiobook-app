@@ -11,6 +11,7 @@ import { headers, cookies } from "next/headers";
 import Image from "next/image";
 import SideIcon from "@/components/SideIcon";
 import { PlayerBanner } from "@/components/PlayerBanner";
+import PlayerProvider from "./player-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -84,8 +85,10 @@ export default function RootLayout({
           <main className="fixed top-16 left-60 right-0 bottom-0 overflow-auto pb-24">
             <div className="relative">
               <div className="flex justify-center">
-                <div className="w-1/2">{children}</div>
-                <PlayerBanner />
+                <PlayerProvider>
+                  <div className="w-1/2">{children}</div>
+                  <PlayerBanner />
+                </PlayerProvider>
               </div>
             </div>
           </main>

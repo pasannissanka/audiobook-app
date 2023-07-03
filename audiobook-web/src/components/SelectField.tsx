@@ -38,7 +38,7 @@ const SelectField = ({
         name={name}
         placeholder={placeholder}
         onChange={onChange}
-        value={selected}
+        // value={selected}
       />
 
       <ErrorMessage
