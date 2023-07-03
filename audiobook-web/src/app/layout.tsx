@@ -1,4 +1,10 @@
-import { BoltIcon, BookOpenIcon, MagnifyingGlassIcon, QueueListIcon, UserIcon } from "@heroicons/react/24/outline";
+import {
+  BoltIcon,
+  BookOpenIcon,
+  MagnifyingGlassIcon,
+  QueueListIcon,
+  UserIcon,
+} from "@heroicons/react/24/outline";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { headers, cookies } from "next/headers";
@@ -75,14 +81,14 @@ export default function RootLayout({
               icon={<UserIcon className="h-6 w-6" />}
             />
           </aside>
-          <main className="fixed pt-16 left-60 right-0 max-h-screen h-full">
+          <main className="fixed top-16 left-60 right-0 bottom-0 overflow-auto pb-24">
             <div className="relative">
               <div className="flex justify-center">
                 <div className="w-1/2">{children}</div>
+                <PlayerBanner />
               </div>
             </div>
           </main>
-        <PlayerBanner />
         </div>
       </body>
     </html>

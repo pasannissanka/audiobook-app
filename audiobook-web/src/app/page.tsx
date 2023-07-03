@@ -49,7 +49,28 @@ const DATA: BookCardProps[] = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col overflow-auto">
+    <div className="flex flex-col h-full">
+      <div className="flex w-full p-4">
+        <HorizontalListView
+          title="Popular"
+          data={DATA}
+          options={{ align: "start", slidesToScroll: 1 }}
+        />
+      </div>
+      <div className="flex w-full p-4">
+        <HorizontalListView
+          title="Popular"
+          data={DATA}
+          options={{ align: "start", slidesToScroll: 1 }}
+        />
+      </div>
+      <div className="flex w-full p-4">
+        <HorizontalListView
+          title="Popular"
+          data={DATA}
+          options={{ align: "start", slidesToScroll: 1 }}
+        />
+      </div>
       <div className="flex w-full p-4">
         <HorizontalListView
           title="Popular"
