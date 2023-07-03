@@ -13,7 +13,7 @@ import { Menu } from "@headlessui/react";
 import Modal from "./Modal";
 import { BookForm } from "./BookForm";
 
-type BookCardProps = {
+export type BookCardProps = {
   title: string;
   id: string;
   path: string;
@@ -33,7 +33,7 @@ export const BookCard = ({
   return (
     <>
       <div
-        className="relative flex flex-col p-2 mx-2 w-48 border rounded-md min-w-fit"
+        className="relative flex flex-col p-2 mx-2 w-48 border rounded-md min-w-fit shadow-lg"
         key={id}
       >
         <span className="absolute top-o right-0 p-3">

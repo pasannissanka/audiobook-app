@@ -195,8 +195,8 @@ export const BookForm = () => {
                                         icon={<PlusIcon className="w-4 h-4" />}
                                       />
                                     </div>
-                                    {chapter.imageUrls.length > 0 &&
-                                      chapter.imageUrls.map(
+                                    {chapter.imageUrls?.length > 0 &&
+                                      chapter.imageUrls?.map(
                                         (coverImg, i_idx) => (
                                           <FormField
                                             key={i_idx}
@@ -222,8 +222,8 @@ export const BookForm = () => {
                                         icon={<PlusIcon className="w-4 h-4" />}
                                       />
                                     </div>
-                                    {chapter.audioUrls.length > 0 &&
-                                      chapter.audioUrls.map(
+                                    {chapter.audioUrls?.length > 0 &&
+                                      chapter.audioUrls?.map(
                                         (audioUrl, a_idx) => (
                                           <FormField
                                             key={c_idx}

@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { headers, cookies } from "next/headers";
 import Image from "next/image";
 import SideIcon from "@/components/SideIcon";
+import { PlayerBanner } from "@/components/PlayerBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -81,6 +82,7 @@ export default function RootLayout({
               </div>
             </div>
           </main>
+        <PlayerBanner />
         </div>
       </body>
     </html>
