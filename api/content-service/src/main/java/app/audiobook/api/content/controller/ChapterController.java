@@ -54,7 +54,7 @@ public class ChapterController {
 
 
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteChapter(@PathVariable String id){
         if(!chapterService.existsById(id)){
             return ResponseEntity.notFound().build();

@@ -119,4 +119,11 @@ public class BookServiceImpl implements BookService {
     public Book findBookById(String id) {
         return bookRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public List<Book> getBooksByGenre(String id){
+        return bookRepository.findByGenreId(id);
+    }
+
+
 }
