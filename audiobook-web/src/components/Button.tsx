@@ -8,6 +8,7 @@ type ButtonProps =
       target: () => void;
       icon?: ReactNode;
       disabled?: boolean;
+      btnType?: "submit" | "reset" | "button";
     }
   | {
       type: "link";
@@ -18,14 +19,8 @@ type ButtonProps =
       disabled?: boolean;
     };
 
-export default function Button({
-  type,
-  text,
-  target,
-  icon,
-  disabled,
-  variant = "primary",
-}: ButtonProps) {
+export default function Button(props: ButtonProps) {
+  const { type, variant = "primary", text, target, icon, disabled } = props;
   const bg =
     variant === "primary"
       ? "bg-blue-500 hover:bg-blue-700 text-white"
@@ -36,6 +31,7 @@ export default function Button({
   if (type === "button") {
     return (
       <button
+        type={props.btnType || "button"}
         disabled={disabled}
         onClick={target}
         className={` ${bg} flex justify-center items-center font-bold py-2 px-4 rounded duration-100 ${
