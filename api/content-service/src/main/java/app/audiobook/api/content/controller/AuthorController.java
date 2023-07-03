@@ -3,6 +3,7 @@ package app.audiobook.api.content.controller;
 import app.audiobook.api.content.model.Author;
 import app.audiobook.api.content.model.Book;
 import app.audiobook.api.content.service.AuthorService;
+import app.audiobook.api.content.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +14,14 @@ import java.util.List;
 @RequestMapping("/authors")
 public class AuthorController {
     private final AuthorService authorService;
+    private final BookService bookService;
+
 
     @Autowired
-    public AuthorController(AuthorService authorService) {
+    public AuthorController(AuthorService authorService, BookService bookService)
+    {
         this.authorService = authorService;
+        this.bookService = bookService;
     }
 
     @PostMapping
@@ -63,7 +68,7 @@ public class AuthorController {
     public ResponseEntity<List<Book>> getAuthorBooks(@PathVariable("id") String id){
         Author author = authorService.findAuthorById(id);
         if(author != null){
-            List<Book> books = author.getBooks();
+            List<Book> books = bookService.getBooksByAuthor(id);
             return ResponseEntity.ok(books);
         }else {
             return ResponseEntity.notFound().build();

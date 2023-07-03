@@ -124,6 +124,10 @@ public class BookServiceImpl implements BookService {
     public List<Book> getBooksByGenre(String id){
         return bookRepository.findByGenreId(id);
     }
+    @Override
+    public List<Book> getBooksByAuthor(String id){
+        return bookRepository.findByAuthorId(id);
+    }
 
 
 }
