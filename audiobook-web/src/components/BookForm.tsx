@@ -77,6 +77,7 @@ export const BookForm = () => {
                   />
                   <div className="my-2 border-b pb-2">
                     <FieldArray name="coverImgs">
+                      {/* @ts-ignore */}
                       {({ push, remove }) => (
                         <div>
                           <div className="flex justify-between items-center border-b pb-2">
@@ -146,6 +147,7 @@ export const BookForm = () => {
               </div>
               <div className="flex flex-col my-4">
                 <FieldArray name="chapters">
+                  {/* @ts-ignore */}
                   {(chapterFA) => (
                     <div className="my-4">
                       <div className="flex justify-between items-center border-b pb-2">
@@ -183,6 +185,7 @@ export const BookForm = () => {
                             </div>
                             <div className="my-2 border-b pb-2">
                               <FieldArray name={`chapters.${c_idx}.imageUrls`}>
+                                {/* @ts-ignore */}
                                 {(imgFA) => (
                                   <div className="flex flex-col">
                                     <div className="flex justify-between items-center border-b pb-2">
@@ -210,6 +213,7 @@ export const BookForm = () => {
                                 )}
                               </FieldArray>
                               <FieldArray name={`chapters.${c_idx}.audioUrls`}>
+                                {/* @ts-ignore */}
                                 {(audioFA) => (
                                   <div className="flex flex-col">
                                     <div className="flex justify-between items-center border-b pb-2">
